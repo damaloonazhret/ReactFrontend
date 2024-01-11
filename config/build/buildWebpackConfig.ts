@@ -1,5 +1,4 @@
 import {BuildOptions} from "./types/config";
-import path from "path";
 import {buildPlugin} from "./buildPlugin";
 import {buildLoaders} from "./buildLoaders";
 import {buildResolvers} from "./buildResolvers";
@@ -18,7 +17,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         },
         plugins: buildPlugin(options),
         module: {
-            rules: buildLoaders()
+            rules: buildLoaders(options)
         },
         resolve: buildResolvers(),
         devtool: isDev ? 'inline-source-map' : undefined,
