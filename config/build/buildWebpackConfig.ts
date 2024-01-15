@@ -1,5 +1,5 @@
 import {BuildOptions} from "./types/config";
-import {buildPlugin} from "./buildPlugin";
+import {buildPlugins} from "./buildPlugins";
 import {buildLoaders} from "./buildLoaders";
 import {buildResolvers} from "./buildResolvers";
 import webpack from "webpack";
@@ -15,7 +15,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             path: paths.build,
             clean: true,
         },
-        plugins: buildPlugin(options),
+        plugins: buildPlugins(options),
         module: {
             rules: buildLoaders(options)
         },
