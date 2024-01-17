@@ -2,13 +2,14 @@ import React, {
     FC, PropsWithChildren, useMemo, useState,
 } from 'react';
 import { LinkProps } from 'react-router-dom';
+import type { To } from 'react-router';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
 export type ReactFC<Props extends Record<PropertyKey, unknown> = {}> = FC<PropsWithChildren<Props>>;
 
-interface ThemeProviderProps extends LinkProps{
+interface ThemeProviderProps{
     children?: React.ReactNode;
 }
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
