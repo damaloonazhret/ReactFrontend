@@ -1,4 +1,4 @@
-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: GitHub Actions Workflow
 
 on:
   push:
