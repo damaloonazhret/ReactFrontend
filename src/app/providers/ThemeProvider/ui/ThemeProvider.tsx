@@ -11,9 +11,11 @@ export type ReactFC<Props extends Record<PropertyKey, unknown> = {}> = FC<PropsW
 
 interface ThemeProviderProps{
     children?: React.ReactNode;
+    initialTheme?:Theme;
 }
-const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>(defaultTheme);
+const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+    const { children, initialTheme } = props;
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
     const defaultProps = useMemo(() => ({
         theme,
