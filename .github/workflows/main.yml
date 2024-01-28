@@ -1,40 +1,4 @@
-#name: GitHub Actions Workflow
-#
-#on:
-#  push:
-#    branches: [main]
-#  pull_request:
-#    branches: [main]
-#
-#jobs:
-#  pipeline:
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        node-version: [21.x]
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Starting Node.js ${{ matrix.node-version }}
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#      - name: Install modules
-#        run: npm install
-#      - name: Build production project
-#        run: npm run build:prod
-#      - name: Linting typescript
-#        run: npm run lint:ts
-#      - name: Linting css
-#        run: npm run lint:scss
-#      - name: Unit testing
-#        run: npm run test:unit
-#      - name: build storybook
-#        run: npm run storybook:build
-#      - name: run storybook
-#        run: npm run storybook
-#      - name: screenshot testing
-#        run: npm run test:ui:ci
+name: GitHub Actions Workflow
 
 on:
   push:
@@ -43,16 +7,15 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [21.x]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -66,24 +29,60 @@ jobs:
         run: npm run lint:scss
       - name: Unit testing
         run: npm run test:unit
-
-  storybook_and_screenshot_testing:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install modules
-        run: npm install
-      - name: Build storybook
+      - name: build storybook
         run: npm run storybook:build
-      - name: Run storybook
+      - name: run storybook
         run: npm run storybook &
-      - name: Screenshot testing
+      - name: screenshot testing
         run: npm run test:ui:ci
 
+#on:
+#  push:
+#    branches: [main]
+#  pull_request:
+#    branches: [main]
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        node-version: [21.x]
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#      - name: Setup Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#      - name: Install modules
+#        run: npm install
+#      - name: Build production project
+#        run: npm run build:prod
+#      - name: Linting typescript
+#        run: npm run lint:ts
+#      - name: Linting css
+#        run: npm run lint:scss
+#      - name: Unit testing
+#        run: npm run test:unit
+#
+#  storybook_and_screenshot_testing:
+#    needs: build
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#      - name: Setup Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#      - name: Install modules
+#        run: npm install
+#      - name: Build storybook
+#        run: npm run storybook:build
+#      - name: Run storybook
+#        run: npm run storybook &
+#      - name: Screenshot testing
+#        run: npm run test:ui:ci

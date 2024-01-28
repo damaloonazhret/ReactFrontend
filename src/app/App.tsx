@@ -9,11 +9,11 @@ import { Sidebar } from 'widgets/Sidebar';
 const App = () => {
     const { theme } = useTheme();
 
-    useEffect(() => {
-        if (Math.random() > 0.5) {
-            throw new Error();
-        }
-    });
+    // useEffect(() => {
+    //     if (Math.random() > 0.5) {
+    //         throw new Error();
+    //     }
+    // });
 
     return (
         <div className={classNames('app', {}, [theme])}>
