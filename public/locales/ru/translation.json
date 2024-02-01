@@ -10,5 +10,7 @@
   "Toggle": "Toggle",
   "Короткий язык": "Ru",
   "О сайте": "О сайте",
-  "Войти": "Войти"
+  "Войти": "Войти",
+  "increment": "increment",
+  "decrement": "decrement"
 }
