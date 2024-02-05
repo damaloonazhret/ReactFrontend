@@ -94,6 +94,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
     "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.6.7",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "i18next": "^23.7.16",
     "i18next-browser-languagedetector": "^7.2.0",
