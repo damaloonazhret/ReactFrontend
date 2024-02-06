@@ -4,7 +4,6 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from '../../src/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storyBook/RouterDecorator/RouterDecorator';
-import { TranslationDecorator } from '../../src/shared/config/storyBook/TranslationDecorator/TranslationDecorator';
 
 const preview: Preview = {
     parameters: {
@@ -19,7 +18,6 @@ const preview: Preview = {
     decorators: [
         ThemeDecorator(Theme.LIGHT),
         RouterDecorator,
-        TranslationDecorator,
     ],
 };
 export default preview;
